@@ -1,23 +1,31 @@
-export default function UnderConstruction() {
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import { Instrument_Serif, IBM_Plex_Sans } from "next/font/google";
+import "./globals.css";
+
+const display = Instrument_Serif({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-display",
+});
+
+const body = IBM_Plex_Sans({
+  weight: ["400", "500"],
+  subsets: ["latin"],
+  variable: "--font-body",
+});
+
+export const metadata: Metadata = {
+  title: "Coming soon",
+  description: "We're building something careful. Launching soon.",
+};
+
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-amber-950 px-6 text-center text-white">
-      <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-amber-300">
-        Work In Progress
-      </p>
-
-      <h1 className="text-5xl font-bold tracking-tight sm:text-7xl">
-        Under <span className="text-amber-400">Construction</span>
-      </h1>
-
-      <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
-        We're building something here. Please check back later.
-      </p>
-
-      <div className="mt-10 h-1 w-24 animate-pulse rounded-full bg-amber-500" />
-
-      <footer className="absolute bottom-6 text-sm text-slate-500">
-        &copy; {new Date().getFullYear()} Your Company. All rights reserved.
-      </footer>
-    </main>
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
+      <body className="bg-[#F2EEE6] font-[family-name:var(--font-body)] text-[#15201B] antialiased">
+        {children}
+      </body>
+    </html>
   );
 }
