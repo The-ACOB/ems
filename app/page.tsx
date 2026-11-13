@@ -87,9 +87,7 @@ export default function UnderConstructionPage() {
         </div>
       </section>
 
-      <footer className="relative z-10 px-6 pb-8 text-sm text-[#15201B]/55 sm:px-12">
-        © {new Date().getFullYear()} All rights reserved.
-      </footer>
+      <footer className="relative z-10 px-6 pb-8 text-sm text-[#15201B]/55 sm:px-12"></footer>
     </main>
   );
 }
